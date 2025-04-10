@@ -1,0 +1,342 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1d2b3a;
+    position: relative;
+    overflow: hidden;
+}
+
+.corner-design {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, transparent 60%, #3b82f6 100%);
+    border-top-left-radius: 40%;
+    z-index: -1;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px;
+    gap: 50px;
+    z-index: 1;
+}
+
+.container .box {
+    position: relative;
+    height: 400px;
+    width: 280px;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.container .box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+}
+
+.container .box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+    filter: blur(16px);
+}
+
+.container .box b {
+    padding: 30px;
+    position: absolute;
+    display: block;
+    inset: 4px;
+    border-radius: 16px;
+    background: rgba(25, 25, 35, 0.9);
+    z-index: 2;
+}
+
+.container .box b p {
+    font-weight: 200;
+    color: #fff;
+    text-shadow: 0 0 15px #fff;
+}
+
+.image-container {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.image-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: neonPulse 4s infinite;
+}
+
+@keyframes neonPulse {
+    0% {
+        box-shadow: 
+            0 0 5px 1px #1e3a8a,
+            0 0 10px 2px #3b82f6,
+            0 0 15px 3px #60a5fa;
+    }
+    50% {
+        box-shadow: 
+            0 0 10px 2px #1e3a8a,
+            0 0 15px 3px #3b82f6,
+            0 0 20px 4px #60a5fa;
+    }
+    100% {
+        box-shadow: 
+            0 0 5px 1px #1e3a8a,
+            0 0 10px 2px #3b82f6,
+            0 0 15px 3px #60a5fa;
+    }
+}
+
+.adatok {
+    display: flex;
+    justify-content: center;
+}
+
+.flip-card {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Lényeges módosítás: amikor a kártya meg van fordítva, az első oldal 
+   nem fogad egér eseményeket, így a linkek sem lesznek kattinthatók */
+.flip-card.flipped .flip-card-front {
+    pointer-events: none;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    cursor: pointer; /* Egér mutatót kézre változtatja, jelezve hogy kattintható */
+}
+
+hr {
+    width: 50%;
+    margin: 12px auto;
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+}
+
+.button-container {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.action-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button i {
+    font-size: 18px;
+}
+
+.action-button:hover {
+    background: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.flip-button-back {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 0;
+    z-index: 10; /* Biztosítja, hogy a gomb mindig kattintható legyen */
+}
+
+.flip-button-back:hover {
+    background: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.qr-container {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.qr-container img {
+    width: 160px;
+    height: 160px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.back-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #3b82f6;
+}
+
+.back-info {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #e2e8f0;
+}
+
+.name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #3b82f6;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    animation: namePulse 3s infinite;
+}
+
+@keyframes namePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.job {
+    font-size: 14px;
+    margin-bottom: 25px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: #a0aec0;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 9px 10px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+.contact-item:hover {
+    background: rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    margin-right: 5px;
+    color: #3b82f6;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.contact-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-link:hover, 
+.contact-link:active, 
+.contact-link:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-item span {
+    color: #fff;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+
+/* ez az árnyék betű 
+.text_shadow_a !important {
+  text-shadow: 
+    0 0 2px black,
+    0 0 2px black,
+    0 0 2px black;
+}
+*/ 
+
+.text-with-stroke {
+    color: white;
+    -webkit-text-stroke: 0.5px black;
+    text-stroke: 0px black; /* Standard property, de még nem támogatott */
+}

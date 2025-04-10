@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balogh Balázs Könyvelő</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="corner-design"></div>
+    <div class="container">
+        <div class="flip-card" id="flipCard">
+            <div class="flip-card-inner">
+                <!-- Első oldal (eleje) -->
+                <div class="flip-card-front">
+                    <div class="box blue">
+                        <b>
+                            <div class="image-container">
+                                <img src="https://i.postimg.cc/KjkC6Qnx/ea25e37f-6d70-4b65-9044-153a671ba2b7.jpg" alt="Profilkép">
+                            </div>
+                            <br><br><br>
+                            <p class="name adatok text_shadow_a">Balogh Balázs</p>
+                            <hr>
+                            <p class="job adatok text_shadow_a">Könyvelő és adótanácsadó</p>
+                            
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone-alt contact-icon"></i>
+                                    <a href="tel:+36301578855" class="contact-link">
+                                        <span class="text-with-stroke">+36 30/157 88 55</span>
+                                    </a>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope contact-icon"></i>
+                                    <a href="mailto:iroda.baloghkft@gmail.com" class="contact-link">
+                                        <span class="text-with-stroke">iroda.baloghkft@gmail.com</span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="button-container">
+                                <button class="action-button download-vcf" title="Mentés telefonra">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="action-button flip-button" title="QR kód mutatása" id="flipBtn">
+                                    <i class="fas fa-qrcode"></i>
+                                </button>
+                                <button class="action-button whatsapp-button" title="WhatsApp üzenet küldése">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </b>
+                    </div>
+                </div>
+                
+                <!-- Második oldal (hátulja) -->
+                <div class="flip-card-back" id="cardBack">
+                    <div class="box blue">
+                        <b>
+                            <p class="back-title adatok">Olvassa be a QR kódot</p>
+                            <div class="qr-container">
+                                <img id="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BEGIN:VCARD%0AVERSION:3.0%0AFN:Balogh%20Balázs%0ATITLE:Könyvelő%20és%20adótanácsadó%0ATEL:0036301578855%0AEMAIL:iroda.baloghkft@gmail.com%0AEND:VCARD" alt="QR kód">
+                            </div>
+                            <p class="back-info adatok">Szkennelje be a névjegy mentéséhez</p>
+                            
+                            <button class="action-button flip-button-back" id="flipBackBtn" title="Vissza a névjegyhez">
+                                <i class="fas fa-undo"></i>
+                            </button>
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
