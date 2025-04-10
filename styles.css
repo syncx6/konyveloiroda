@@ -143,6 +143,9 @@ body {
    nem fogad egér eseményeket, így a linkek sem lesznek kattinthatók */
 .flip-card.flipped .flip-card-front {
     pointer-events: none;
+    /* Új hozzáadott tulajdonságok a láthatóság kezelésére */
+    opacity: 0;
+    visibility: hidden;
 }
 
 .flip-card-front, .flip-card-back {
@@ -151,11 +154,19 @@ body {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
 }
 
 .flip-card-back {
     transform: rotateY(180deg);
     cursor: pointer; /* Egér mutatót kézre változtatja, jelezve hogy kattintható */
+}
+
+/* Új szabály: alapértelmezetten a hátsó oldal rejtett */
+.flip-card:not(.flipped) .flip-card-back {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 hr {
